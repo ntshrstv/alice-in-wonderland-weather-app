@@ -1,0 +1,166 @@
+body {
+  background: url(https://s3.amazonaws.com/shecodesio-production/uploads/files/000/017/779/original/line-flowers-dark_%283%29.jpg?1632758457);
+}
+
+.weather-app {
+  background: url(https://s3.amazonaws.com/shecodesio-production/uploads/files/000/017/663/original/parchment.jpg?1632579353);
+
+  border-radius: 10px;
+
+  padding: 12px 12px 166px;
+  margin: 63px auto;
+  box-shadow: 0 0 25px 0px black;
+  max-width: 922px;
+
+  font-family: "Alice", serif;
+}
+
+.date,
+.time {
+  font-weight: bold;
+}
+
+.date {
+  font-size: 31px;
+  margin: 0 10px;
+}
+
+.time {
+  font-size: 22px;
+  margin: 0 18px;
+}
+
+.current-location {
+  position: relative;
+  left: 51px;
+  margin: 15px;
+  padding: 11px 18px;
+  border: 1px solid #dec49c;
+  border-radius: 50%;
+  background: #dec49c;
+  box-shadow: 0 0 10px 0px black;
+}
+
+.search-input {
+  position: relative;
+  left: 39px;
+  padding: 10px;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  box-shadow: 0 0 10px 0px black;
+}
+
+.search-button {
+  position: relative;
+  left: 35px;
+
+  padding: 10px;
+  background: #dec49c;
+  border: 1px solid #dec49c;
+  border-radius: 0px 3px 3px 0;
+  box-shadow: 0 0 9px 0px black;
+}
+
+.wonderland-image {
+  position: relative;
+  left: 94px;
+  top: 34px;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  padding: 0;
+  box-shadow: 0 0 44px 5px black;
+  max-width: 100%;
+}
+
+.city-state {
+  font-size: 45px;
+  font-weight: bold;
+  text-align: center;
+  position: relative;
+  top: 72px;
+}
+
+.main-temp-icon {
+  position: relative;
+  top: 19px;
+  font-size: 74px;
+  left: 92px;
+}
+
+.main-temperature {
+  font-size: 136px;
+  position: relative;
+  top: 32px;
+  left: 94px;
+}
+
+.temp-switch {
+  text-decoration: none;
+  color: black;
+  opacity: 0.7;
+}
+
+.temp-switch:hover {
+  color: black;
+}
+
+.unit {
+  position: relative;
+  right: -72px;
+  top: -24px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.weather-description {
+  text-align: center;
+  font-size: 33px;
+  font-weight: bold;
+}
+
+.humidity-wind {
+  text-align: center;
+  font-size: 18px;
+}
+
+.next-five-days {
+  position: relative;
+  left: 45px;
+  top: 84px;
+}
+
+.day {
+  position: relative;
+  left: 10px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.temperature-icon-five-day {
+  font-size: 45px;
+  position: relative;
+  right: -8px;
+  top: 10px;
+}
+
+.temperature-five-day-high,
+.temperature-five-day-low {
+  position: relative;
+  top: 30px;
+  font-weight: bold;
+}
+.temperature-five-day-high {
+  font-size: 20px;
+}
+
+.temperature-five-day-low {
+  font-size: 20px;
+  opacity: 0.7;
+}
+
+footer {
+  position: relative;
+  top: 148px;
+  text-align: center;
+  font-weight: bold;
+}

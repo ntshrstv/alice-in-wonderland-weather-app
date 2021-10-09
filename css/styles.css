@@ -1,0 +1,156 @@
+body {
+  background: url(https://s3.amazonaws.com/shecodesio-production/uploads/files/000/017/779/original/line-flowers-dark_%283%29.jpg?1632758457);
+}
+
+.weather-app {
+  background: url(https://s3.amazonaws.com/shecodesio-production/uploads/files/000/017/663/original/parchment.jpg?1632579353);
+
+  border-radius: 10px;
+
+  padding: 0px 11px 61px;
+  margin: 63px auto;
+  box-shadow: 0 0 25px 0px black;
+  max-width: 922px;
+
+  font-family: "Alice", serif;
+}
+
+.date,
+.time {
+  font-weight: bold;
+}
+
+.date {
+  font-size: 31px;
+  margin: 0 10px;
+}
+
+.time {
+  font-size: 22px;
+  margin: 0 18px;
+}
+
+.current-location {
+  position: relative;
+  left: 58px;
+  margin: 15px;
+  padding: 11px 18px;
+  border: 1px solid #dec49c;
+  border-radius: 50%;
+  background: #dec49c;
+  box-shadow: 0 0 10px 0px black;
+}
+
+.search-input {
+  margin: 15px;
+  padding: 10px;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  box-shadow: 0 0 10px 0px black;
+}
+
+.search-button {
+  padding: 10px;
+  background: #dec49c;
+  border: 1px solid #dec49c;
+  border-radius: 0px 3px 3px 0;
+  box-shadow: 0 0 9px 0px black;
+}
+
+.wonderland-image {
+  border: 1px solid transparent;
+  border-radius: 50%;
+  padding: 0;
+  box-shadow: 0 0 44px 5px black;
+  max-width: 100%;
+}
+
+.city-state {
+  font-size: 45px;
+  font-weight: bold;
+  text-align: center;
+  position: relative;
+  top: 72px;
+}
+
+.main-temp-icon {
+  font-size: 74px;
+  position: relative;
+  top: -8px;
+}
+
+.main-temperature {
+  font-size: 136px;
+}
+
+.units {
+  font-size: 24px;
+  font-weight: bold;
+  position: relative;
+  bottom: 60px;
+}
+
+.fahrenheit-link,
+.celsius-link {
+  text-decoration: none;
+  color: black;
+  opacity: 0.7;
+}
+
+.fahrenheit-link:hover {
+  color: black;
+}
+.celsius-link:hover {
+  color: black;
+}
+
+.weather-description {
+  text-align: center;
+  font-size: 33px;
+  font-weight: bold;
+}
+
+.humidity-wind {
+  list-style: none;
+}
+
+.row.next-five-days.text-center {
+  margin: 10px;
+}
+
+.col {
+  margin: 50px;
+}
+
+.day {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.temperature-icon-five-day {
+  font-size: 45px;
+}
+
+.temperature-five-day-high,
+.temperature-five-day-low {
+  font-weight: bold;
+}
+.temperature-five-day-high {
+  font-size: 20px;
+}
+
+.temperature-five-day-low {
+  font-size: 20px;
+  opacity: 0.7;
+}
+
+footer {
+  position: relative;
+  bottom: -53px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.github-link {
+  text-decoration: none;
+}
