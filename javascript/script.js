@@ -58,8 +58,10 @@ function displayWeatherCondition(response) {
     .querySelector("#main-temp-icon")
     .setAttribute("alt", response.data.weather[0].description);
 
+  fahrenheitTemperature = response.data.main.temp;
+
   document.querySelector("#main-temperature").innerHTML = Math.round(
-    response.data.main.temp
+    fahrenheitTemperature
   );
 
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
@@ -71,7 +73,7 @@ function displayWeatherCondition(response) {
     response.data.weather[0].description;
 }
 
-function searchCityAndGetCurrentCity(city) {
+function searchCity(city) {
   let units = "imperial";
   let apiKey = "1dbf926d3b4417bf379db7043bec1047";
   let apiEndpoint = "https://api.openweathermap.org/data/2.5/weather";
@@ -82,7 +84,7 @@ function searchCityAndGetCurrentCity(city) {
 function handleSubmit(event) {
   event.preventDefault();
   let city = document.querySelector("#search-text-input").value;
-  searchCityAndGetCurrentCity(city);
+  searchCity(city);
 }
 
 function showCurrentLocation(position) {
@@ -123,39 +125,40 @@ let currentLocationButton = document.querySelector("#current-location");
 
 currentLocationButton.addEventListener("click", getCurrentLocation);
 
-searchCityAndGetCurrentCity("New York");
-
 //Part - 3: fahrenheit and celsius change - no need for conversion
 
 //Fahrenheit
 
-/* function convertToFahrenheit(click) {
+function displayFahrenheitTemperature(click) {
   click.preventDefault();
   let temperatureElement = document.querySelector("#main-temperature");
-  temperatureElement.innerHTML = 66;
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
 }
-*/
 
 //Celsius
 
-/* function convertToCelsius(click) {
+function displayCelsiusTemperature(click) {
   click.preventDefault();
   let temperatureElement = document.querySelector("#main-temperature");
-  temperatureElement.innerHTML = 19;
+  fahrenheitLink.classList.remove("active");
+  celsiusLink.classList.add("active");
+  let celsiusTemperature = ((fahrenheitTemperature - 32) * 5) / 9;
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
-
-*/
-
 //Part: 3
 
-/* let fahrenheitLink = document.querySelector("#fahrenheit-link");
+let fahrenheitTemperature = null;
 
-fahrenheitLink.addEventListener("click", convertToFahrenheit);
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 
 let celsiusLink = document.querySelector("#celsius-link");
 
-celsiusLink.addEventListener("click", convertToCelsius);
-
-*/
+celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 //Homework- Week: 5 - Search Engine - Current Location
+
+searchCity("New York");
