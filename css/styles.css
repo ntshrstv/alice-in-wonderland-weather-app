@@ -2,6 +2,13 @@ body {
   background: url(https://s3.amazonaws.com/shecodesio-production/uploads/files/000/017/779/original/line-flowers-dark_%283%29.jpg?1632758457);
 }
 
+footer {
+  position: relative;
+  bottom: -53px;
+  text-align: center;
+  font-weight: bold;
+}
+
 .weather-app {
   background: url(https://s3.amazonaws.com/shecodesio-production/uploads/files/000/017/663/original/parchment.jpg?1632579353);
 
@@ -112,6 +119,7 @@ body {
 
 .humidity-wind {
   list-style: none;
+  padding: 0;
 }
 
 .row.next-five-days.text-center {
@@ -142,13 +150,6 @@ body {
 .temperature-five-day-low {
   font-size: 20px;
   opacity: 0.7;
-}
-
-footer {
-  position: relative;
-  bottom: -53px;
-  text-align: center;
-  font-weight: bold;
 }
 
 .github-link {

@@ -44,7 +44,19 @@ function formatTime(currentTime) {
 //Homework- Week: 5 - Search Engine
 
 function displayWeatherCondition(response) {
+  console.log(response);
   document.querySelector("#city-state").innerHTML = response.data.name;
+
+  document
+    .querySelector("#main-temp-icon")
+    .setAttribute(
+      "src",
+      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    );
+
+  document
+    .querySelector("#main-temp-icon")
+    .setAttribute("alt", response.data.weather[0].description);
 
   document.querySelector("#main-temperature").innerHTML = Math.round(
     response.data.main.temp
