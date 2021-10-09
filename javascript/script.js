@@ -1,9 +1,3 @@
-//SheCodes+ Week 4 HW
-
-//Part - 1: Date and current time
-
-//Current Date - format: full month, day (#), full year
-
 function formatDate(currentDate) {
   let months = [
     "January",
@@ -40,8 +34,15 @@ function formatTime(currentTime) {
   return `${hours}:${minutes}`;
 }
 
-//Part - 2: Change city (HW week: 4)
-//Homework- Week: 5 - Search Engine
+let currentDate = new Date();
+
+let date = document.querySelector("#date");
+
+date.innerHTML = formatDate(currentDate);
+
+let time = document.querySelector("#time");
+
+time.innerHTML = formatTime(currentDate);
 
 function displayWeatherCondition(response) {
   console.log(response);
@@ -103,20 +104,6 @@ function getCurrentLocation(event) {
   navigator.geolocation.getCurrentPosition(showCurrentLocation);
 }
 
-//Part: 1
-
-let currentDate = new Date();
-
-let date = document.querySelector("#date");
-
-date.innerHTML = formatDate(currentDate);
-
-let time = document.querySelector("#time");
-
-time.innerHTML = formatTime(currentDate);
-
-//Part: 2
-
 let form = document.querySelector("#location-search-form");
 
 form.addEventListener("submit", handleSubmit);
@@ -124,10 +111,6 @@ form.addEventListener("submit", handleSubmit);
 let currentLocationButton = document.querySelector("#current-location");
 
 currentLocationButton.addEventListener("click", getCurrentLocation);
-
-//Part - 3: fahrenheit and celsius change - no need for conversion
-
-//Fahrenheit
 
 function displayFahrenheitTemperature(click) {
   click.preventDefault();
@@ -137,8 +120,6 @@ function displayFahrenheitTemperature(click) {
   temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
 }
 
-//Celsius
-
 function displayCelsiusTemperature(click) {
   click.preventDefault();
   let temperatureElement = document.querySelector("#main-temperature");
@@ -147,7 +128,6 @@ function displayCelsiusTemperature(click) {
   let celsiusTemperature = ((fahrenheitTemperature - 32) * 5) / 9;
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
-//Part: 3
 
 let fahrenheitTemperature = null;
 
@@ -158,7 +138,5 @@ fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 let celsiusLink = document.querySelector("#celsius-link");
 
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
-
-//Homework- Week: 5 - Search Engine - Current Location
 
 searchCity("New York");
