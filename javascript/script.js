@@ -21,7 +21,13 @@ function formatDate(currentDate) {
   return `${month} ${day}, ${year}`;
 }
 
-//Current Time = format: hours:minutes
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+
+  return days[day];
+}
 
 function formatTime(currentTime) {
   let hours = currentTime.getHours();
@@ -44,23 +50,31 @@ let time = document.querySelector("#time");
 
 time.innerHTML = formatTime(currentDate);
 
-function displayForecast() {
-  let forecast = document.querySelector("#forecast");
+function displayForecast(response) {
+  let forecast = response.data.daily;
+  let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class='row'>`;
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
+
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
    
           <div class="col-2">
-            <div class="day">${day}</div>
+            <div class="day">${formatDay(forecastDay.dt)}</div>
             
-              <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="" width='50'>
+              <img src="http://openweathermap.org/img/wn/${
+                forecastDay.weather[0].icon
+              }@2x.png" alt="" width='50'>
               <div class="weather-forecast-temperatures">
-              <span class="forecast-temp-max">56°</span>
-              <span class="forecast-temp-min"> 74°</span>
+              <span class="forecast-temp-max">${Math.round(
+                forecastDay.temp.max
+              )}°</span>
+              <span class="forecast-temp-min">${Math.round(
+                forecastDay.temp.min
+              )}°</span>
               </div>
 
           </div>
@@ -68,13 +82,21 @@ function displayForecast() {
   
   
   `;
+    }
   });
   forecastHTML = forecastHTML + `</div>`;
-  forecast.innerHTML = forecastHTML;
+  forecastElement.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates) {
+  units = "imperial";
+  let apiKey = "1dbf926d3b4417bf379db7043bec1047";
+  let apiURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=${units}`;
+
+  axios.get(apiURL).then(displayForecast);
 }
 
 function displayWeatherCondition(response) {
-  console.log(response);
   document.querySelector("#city-state").innerHTML = response.data.name;
 
   document
@@ -101,9 +123,9 @@ function displayWeatherCondition(response) {
 
   document.querySelector("#description").innerHTML =
     response.data.weather[0].description;
-}
 
-displayForecast();
+  getForecast(response.data.coord);
+}
 
 function searchCity(city) {
   let units = "imperial";
