@@ -125,8 +125,9 @@ footer {
   padding: 0;
 }
 
-.row.next-five-days.text-center {
-  margin: 10px;
+.weather-forecast {
+  margin-top: 20px;
+  text-align: center;
 }
 
 .day {
@@ -134,21 +135,15 @@ footer {
   font-weight: bold;
 }
 
-.temperature-icon-five-day {
-  font-size: 45px;
-}
-
-.temperature-five-day-high,
-.temperature-five-day-low {
+.forecast-temp-min {
   font-weight: bold;
-}
-.temperature-five-day-high {
-  font-size: 20px;
-}
-
-.temperature-five-day-low {
   font-size: 20px;
   opacity: 0.7;
+}
+
+.forecast-temp-max {
+  font-weight: bold;
+  font-size: 20px;
 }
 
 .github-link {

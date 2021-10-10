@@ -44,6 +44,35 @@ let time = document.querySelector("#time");
 
 time.innerHTML = formatTime(currentDate);
 
+function displayForecast() {
+  let forecast = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class='row'>`;
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+   
+          <div class="col-2">
+            <div class="day">${day}</div>
+            
+              <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="" width='50'>
+              <div class="weather-forecast-temperatures">
+              <span class="forecast-temp-max">56°</span>
+              <span class="forecast-temp-min"> 74°</span>
+              </div>
+
+          </div>
+       
+  
+  
+  `;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecast.innerHTML = forecastHTML;
+}
+
 function displayWeatherCondition(response) {
   console.log(response);
   document.querySelector("#city-state").innerHTML = response.data.name;
@@ -73,6 +102,8 @@ function displayWeatherCondition(response) {
   document.querySelector("#description").innerHTML =
     response.data.weather[0].description;
 }
+
+displayForecast();
 
 function searchCity(city) {
   let units = "imperial";
