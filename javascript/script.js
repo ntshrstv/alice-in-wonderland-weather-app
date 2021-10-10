@@ -165,31 +165,4 @@ let currentLocationButton = document.querySelector("#current-location");
 
 currentLocationButton.addEventListener("click", getCurrentLocation);
 
-function displayFahrenheitTemperature(click) {
-  click.preventDefault();
-  let temperatureElement = document.querySelector("#main-temperature");
-  celsiusLink.classList.remove("active");
-  fahrenheitLink.classList.add("active");
-  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
-}
-
-function displayCelsiusTemperature(click) {
-  click.preventDefault();
-  let temperatureElement = document.querySelector("#main-temperature");
-  fahrenheitLink.classList.remove("active");
-  celsiusLink.classList.add("active");
-  let celsiusTemperature = ((fahrenheitTemperature - 32) * 5) / 9;
-  temperatureElement.innerHTML = Math.round(celsiusTemperature);
-}
-
-let fahrenheitTemperature = null;
-
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-
-fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
-
-let celsiusLink = document.querySelector("#celsius-link");
-
-celsiusLink.addEventListener("click", displayCelsiusTemperature);
-
 searchCity("New York");
