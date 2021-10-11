@@ -29,12 +29,13 @@ footer {
 
 .date {
   font-size: 31px;
-  margin: 0 10px;
+  margin: 10px 10px;
 }
 
 .time {
   font-size: 22px;
-  margin: 0 18px;
+  margin: -11px 10px;
+  font-size: 26px;
 }
 
 .current-location {
@@ -65,6 +66,7 @@ footer {
 }
 
 .wonderland-image {
+  margin: 8px 114px;
   border: 1px solid transparent;
   border-radius: 50%;
   padding: 0;
@@ -77,35 +79,45 @@ footer {
   font-weight: bold;
   text-align: center;
   position: relative;
-  top: 72px;
+  top: 57px;
 }
 
 .main-temp-icon {
   font-size: 74px;
   position: relative;
-  top: -32px;
+  top: -23px;
+  right: 25px;
 }
 
 .main-temperature {
   font-size: 136px;
+  position: relative;
+  right: 33px;
+  top: 6px;
 }
 
 .units {
   font-size: 24px;
   font-weight: bold;
   position: relative;
-  bottom: 60px;
+  bottom: 55px;
+  right: 33px;
 }
 
 .weather-description {
   text-align: center;
   font-size: 33px;
   font-weight: bold;
+  position: relative;
+  top: -21px;
 }
 
 .humidity-wind {
   list-style: none;
   padding: 0;
+  margin-top: 0;
+  position: relative;
+  top: -16px;
 }
 
 .weather-forecast {

@@ -32,12 +32,19 @@ function formatDay(timestamp) {
 function formatTime(currentTime) {
   let hours = currentTime.getHours();
   let minutes = currentTime.getMinutes();
+  let amPM = "AM PM";
 
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
 
-  return `${hours}:${minutes}`;
+  if (hours < 12) {
+    amPM = `AM`;
+  } else {
+    amPM = `PM`;
+  }
+
+  return `${hours}:${minutes} ${amPM}`;
 }
 
 let currentDate = new Date();
@@ -52,6 +59,7 @@ time.innerHTML = formatTime(currentDate);
 
 function displayForecast(response) {
   let forecast = response.data.daily;
+
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class='row'>`;
@@ -123,6 +131,37 @@ function displayWeatherCondition(response) {
 
   document.querySelector("#description").innerHTML =
     response.data.weather[0].description;
+
+  let wonderlandImage = document.querySelector("#wonderland-image");
+
+  if (response.data.weather[0].description === "thunderstorm") {
+    wonderlandImage.setAttribute(
+      "src",
+      "images/oraculum/alice-jabberwocky.jpg"
+    );
+    wonderlandImage.setAttribute("alt", "alice-fighting-jabberwocky");
+  } else if (response.data.weather[0].description === "drizzle") {
+    wonderlandImage.setAttribute("src", "images/oraculum/mad-march.jpg");
+    wonderlandImage.setAttribute("alt", "Mad March");
+  } else if (response.data.weather[0].description === "rain") {
+    wonderlandImage.setAttribute("src", "images/oraculum/cheshire.jpg");
+    wonderlandImage.setAttribute("alt", "Cheshire");
+  } else if (response.data.weather[0].description === "snow") {
+    wonderlandImage.setAttribute(
+      "src",
+      "images/oraculum/mad-hatter-dormouse.jpg"
+    );
+    wonderlandImage.setAttribute("alt", "Mad Hatter and Dormouse");
+  } else if (response.data.weather[0].description === "clouds") {
+    wonderlandImage.setAttribute(
+      "src",
+      "images/oraculum/tweedledee-and-tweedledum.jpg"
+    );
+    wonderlandImage.setAttribute("alt", "Tweedledee and Tweedledum");
+  } else {
+    wonderlandImage.setAttribute("src", "images/oraculum/alice-oraculum.jpg");
+    wonderlandImage.setAttribute("alt", "Alice after battle with Jabberwocky");
+  }
 
   getForecast(response.data.coord);
 }
