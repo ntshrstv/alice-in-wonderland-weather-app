@@ -41,6 +41,7 @@ function formatTime(currentTime) {
   if (hours < 12) {
     amPM = `AM`;
   } else {
+    hours = hours - 12;
     amPM = `PM`;
   }
 
@@ -56,6 +57,27 @@ date.innerHTML = formatDate(currentDate);
 let time = document.querySelector("#time");
 
 time.innerHTML = formatTime(currentDate);
+
+let animatedIcons = {
+  "01d": "images/animated/clear-day.svg",
+  "01n": "images/animated/clear-night.svg",
+  "02d": "images/animated/partly-cloudy-day.svg",
+  "02n": "images/animated/partly-cloudy-night.svg",
+  "03d": "images/animated/cloudy.svg",
+  "03n": "images/animated/cloudy.svg",
+  "04d": "images/animated/overcast-day.svg",
+  "04n": "images/animated/overcast-night.svg",
+  "09d": "images/animated/rain.svg",
+  "09n": "images/animated/rain.svg",
+  "10d": "images/animated/partly-cloudy-day-rain.svg",
+  "10n": "images/animated/partly-cloudy-night-rain.svg",
+  "11d": "images/animated/thunderstorms-day.svg",
+  "11n": "images/animated/thunderstorms-night.svg",
+  "13d": "images/animated/snow.svg",
+  "13n": "images/animated/snow.svg",
+  "50d": "images/animated/mist.svg",
+  "50n": "images/animated/mist.svg",
+};
 
 function displayForecast(response) {
   let forecast = response.data.daily;
@@ -73,10 +95,11 @@ function displayForecast(response) {
           <div class="col-2">
             <div class="day">${formatDay(forecastDay.dt)}</div>
             
-              <img src="http://openweathermap.org/img/wn/${
-                forecastDay.weather[0].icon
-              }@2x.png" alt="" width='50'>
-              <div class="weather-forecast-temperatures">
+               <img src="${
+                 animatedIcons[forecastDay.weather[0].icon]
+               }" alt="weather-icon" width="100" />
+              
+               <div class="weather-forecast-temperatures">
               <span class="forecast-temp-max">${Math.round(
                 forecastDay.temp.max
               )}°</span>
@@ -109,14 +132,7 @@ function displayWeatherCondition(response) {
 
   document
     .querySelector("#main-temp-icon")
-    .setAttribute(
-      "src",
-      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-    );
-
-  document
-    .querySelector("#main-temp-icon")
-    .setAttribute("alt", response.data.weather[0].description);
+    .setAttribute("src", animatedIcons[response.data.weather[0].icon]);
 
   fahrenheitTemperature = response.data.main.temp;
 
@@ -134,25 +150,32 @@ function displayWeatherCondition(response) {
 
   let wonderlandImage = document.querySelector("#wonderland-image");
 
-  if (response.data.weather[0].description === "thunderstorm") {
+  let weatherDescription = response.data.weather[0].description;
+
+  weatherDescription.foreach (description) {
+    if(description === thunderstorm){
     wonderlandImage.setAttribute(
       "src",
       "images/oraculum/alice-jabberwocky.jpg"
     );
     wonderlandImage.setAttribute("alt", "alice-fighting-jabberwocky");
-  } else if (response.data.weather[0].description === "drizzle") {
+  } else if (description === "shower rain") {
     wonderlandImage.setAttribute("src", "images/oraculum/mad-march.jpg");
     wonderlandImage.setAttribute("alt", "Mad March");
-  } else if (response.data.weather[0].description === "rain") {
+  } else if (description === "rain") {
     wonderlandImage.setAttribute("src", "images/oraculum/cheshire.jpg");
     wonderlandImage.setAttribute("alt", "Cheshire");
-  } else if (response.data.weather[0].description === "snow") {
+  } else if (description === "snow") {
     wonderlandImage.setAttribute(
       "src",
       "images/oraculum/mad-hatter-dormouse.jpg"
     );
     wonderlandImage.setAttribute("alt", "Mad Hatter and Dormouse");
-  } else if (response.data.weather[0].description === "clouds") {
+  } else if (
+    description === "few clouds" ||
+    description === "scattered clouds" ||
+    description === "broken clouds"
+  ) {
     wonderlandImage.setAttribute(
       "src",
       "images/oraculum/tweedledee-and-tweedledum.jpg"
@@ -162,6 +185,8 @@ function displayWeatherCondition(response) {
     wonderlandImage.setAttribute("src", "images/oraculum/alice-oraculum.jpg");
     wonderlandImage.setAttribute("alt", "Alice after battle with Jabberwocky");
   }
+}
+  
 
   getForecast(response.data.coord);
 }

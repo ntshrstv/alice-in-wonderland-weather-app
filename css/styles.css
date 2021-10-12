@@ -1,5 +1,5 @@
 body {
-  background: url(https://s3.amazonaws.com/shecodesio-production/uploads/files/000/017/779/original/line-flowers-dark_%283%29.jpg?1632758457);
+  background: url(https://s3.amazonaws.com/shecodesio-production/uploads/files/000/018/747/original/line-flowers-dark.jpg?1633991934);
 }
 
 footer {
@@ -72,6 +72,56 @@ footer {
   padding: 0;
   box-shadow: 0 0 44px 5px black;
   max-width: 100%;
+
+  animation: fadeIn 5s;
+  -webkit-animation: fadeIn 5s;
+  -moz-animation: fadeIn 5s;
+  -o-animation: fadeIn 5s;
+  -ms-animation: fadeIn 5s;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-ms-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .city-state {
@@ -100,7 +150,7 @@ footer {
   font-size: 24px;
   font-weight: bold;
   position: relative;
-  bottom: 55px;
+  bottom: 52px;
   right: 33px;
 }
 
