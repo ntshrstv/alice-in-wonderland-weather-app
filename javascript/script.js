@@ -150,31 +150,28 @@ function displayWeatherCondition(response) {
 
   let wonderlandImage = document.querySelector("#wonderland-image");
 
-  let weatherDescription = response.data.weather[0].description;
-
-  weatherDescription.foreach (description) {
-    if(description === thunderstorm){
+  if (response.data.weather[0].description === "thunderstorm") {
     wonderlandImage.setAttribute(
       "src",
       "images/oraculum/alice-jabberwocky.jpg"
     );
     wonderlandImage.setAttribute("alt", "alice-fighting-jabberwocky");
-  } else if (description === "shower rain") {
+  } else if (response.data.weather[0].description === "shower rain") {
     wonderlandImage.setAttribute("src", "images/oraculum/mad-march.jpg");
     wonderlandImage.setAttribute("alt", "Mad March");
-  } else if (description === "rain") {
+  } else if (response.data.weather[0].description === "rain") {
     wonderlandImage.setAttribute("src", "images/oraculum/cheshire.jpg");
     wonderlandImage.setAttribute("alt", "Cheshire");
-  } else if (description === "snow") {
+  } else if (response.data.weather[0].description === "snow") {
     wonderlandImage.setAttribute(
       "src",
       "images/oraculum/mad-hatter-dormouse.jpg"
     );
     wonderlandImage.setAttribute("alt", "Mad Hatter and Dormouse");
   } else if (
-    description === "few clouds" ||
-    description === "scattered clouds" ||
-    description === "broken clouds"
+    response.data.weather[0].description === "few clouds" ||
+    response.data.weather[0].description === "scattered clouds" ||
+    response.data.weather[0].description === "broken clouds"
   ) {
     wonderlandImage.setAttribute(
       "src",
@@ -185,8 +182,6 @@ function displayWeatherCondition(response) {
     wonderlandImage.setAttribute("src", "images/oraculum/alice-oraculum.jpg");
     wonderlandImage.setAttribute("alt", "Alice after battle with Jabberwocky");
   }
-}
-  
 
   getForecast(response.data.coord);
 }
