@@ -16,6 +16,7 @@ function formatDate(currentDate) {
 
   let month = months[currentDate.getMonth()];
   let day = currentDate.getDate();
+
   let year = currentDate.getFullYear();
 
   return `${month} ${day}, ${year}`;
@@ -24,7 +25,16 @@ function formatDate(currentDate) {
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
   let day = date.getDay();
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sunday",
+  ];
 
   return days[day];
 }
@@ -38,11 +48,17 @@ function formatTime(currentTime) {
     minutes = `0${minutes}`;
   }
 
-  if (hours < 12) {
-    amPM = `AM`;
+  if (hours === 24) {
+    hours = 12;
+    amPM = "AM";
+  } else if (hours === 12) {
+    hours = 12;
+    amPM = "PM";
+  } else if (hours < 12) {
+    amPM = "AM";
   } else {
     hours = hours - 12;
-    amPM = `PM`;
+    amPM = "PM";
   }
 
   return `${hours}:${minutes} ${amPM}`;
@@ -98,6 +114,12 @@ function displayForecast(response) {
                <img src="${
                  animatedIcons[forecastDay.weather[0].icon]
                }" alt="weather-icon" width="100" />
+
+              <div class='daily-description'>${
+                forecastDay.weather[0].description
+              }</div>
+
+              <br />
               
                <div class="weather-forecast-temperatures">
               <span class="forecast-temp-max">${Math.round(
@@ -142,7 +164,10 @@ function displayWeatherCondition(response) {
 
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#wind").innerHTML = Math.round(
-    response.data.wind.speed
+    response.data.wind.speed * 2.237
+  );
+  document.querySelector("#feels-like").innerHTML = Math.round(
+    response.data.main.feels_like
   );
 
   document.querySelector("#description").innerHTML =
@@ -159,7 +184,10 @@ function displayWeatherCondition(response) {
   } else if (response.data.weather[0].description === "shower rain") {
     wonderlandImage.setAttribute("src", "images/oraculum/mad-march.jpg");
     wonderlandImage.setAttribute("alt", "Mad March");
-  } else if (response.data.weather[0].description === "rain") {
+  } else if (
+    response.data.weather[0].description === "rain" ||
+    response.data.weather[0].description === "light rain"
+  ) {
     wonderlandImage.setAttribute("src", "images/oraculum/cheshire.jpg");
     wonderlandImage.setAttribute("alt", "Cheshire");
   } else if (response.data.weather[0].description === "snow") {
