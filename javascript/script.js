@@ -174,22 +174,65 @@ function displayWeatherCondition(response) {
 
   let wonderlandImage = document.querySelector("#wonderland-image");
 
-  if (response.data.weather[0].description === "thunderstorm") {
+  if (
+    response.data.weather[0].description === "thunderstorm" ||
+    response.data.weather[0].description === "thunderstorm with light rain" ||
+    response.data.weather[0].description === "thunderstorm with rain" ||
+    response.data.weather[0].description === "thunderstorm with heavy rain" ||
+    response.data.weather[0].description === "light thunderstorm" ||
+    response.data.weather[0].description === "heavy thunderstorm" ||
+    response.data.weather[0].description === "ragged thunderstorm" ||
+    response.data.weather[0].description ===
+      "thunderstorm with light drizzle" ||
+    response.data.weather[0].description === "thunderstorm with drizzle" ||
+    response.data.weather[0].description === "thunderstorm with heavy drizzle"
+  ) {
     wonderlandImage.setAttribute(
       "src",
       "images/oraculum/alice-jabberwocky.jpg"
     );
-    wonderlandImage.setAttribute("alt", "alice-fighting-jabberwocky");
-  } else if (response.data.weather[0].description === "shower rain") {
+    wonderlandImage.setAttribute("alt", "Alice fighting the Jabberwocky");
+  } else if (
+    response.data.weather[0].description === "drizzle" ||
+    response.data.weather[0].description === "light intensity drizzle" ||
+    response.data.weather[0].description === "heavy intensity drizzle" ||
+    response.data.weather[0].description === "light intensity drizzle rain" ||
+    response.data.weather[0].description === "drizzle rain" ||
+    response.data.weather[0].description === "heavy intensity drizzle rain" ||
+    response.data.weather[0].description === "shower rain and drizzle" ||
+    response.data.weather[0].description === "heavy shower rain and drizzle" ||
+    response.data.weather[0].description === "shower drizzle"
+  ) {
     wonderlandImage.setAttribute("src", "images/oraculum/mad-march.jpg");
     wonderlandImage.setAttribute("alt", "Mad March");
   } else if (
     response.data.weather[0].description === "rain" ||
-    response.data.weather[0].description === "light rain"
+    response.data.weather[0].description === "light rain" ||
+    response.data.weather[0].description === "moderate rain" ||
+    response.data.weather[0].description === "heavy intensity rain" ||
+    response.data.weather[0].description === "very heavy rain" ||
+    response.data.weather[0].description === "extreme rain" ||
+    response.data.weather[0].description === "freezing rain" ||
+    response.data.weather[0].description === "light intensity shower rain" ||
+    response.data.weather[0].description === "shower rain" ||
+    response.data.weather[0].description === "heavy intensity shower rain" ||
+    response.data.weather[0].description === "ragged shower rain"
   ) {
     wonderlandImage.setAttribute("src", "images/oraculum/cheshire.jpg");
     wonderlandImage.setAttribute("alt", "Cheshire");
-  } else if (response.data.weather[0].description === "snow") {
+  } else if (
+    response.data.weather[0].description === "snow" ||
+    response.data.weather[0].description === "light snow" ||
+    response.data.weather[0].description === "heavy snow" ||
+    response.data.weather[0].description === "sleet" ||
+    response.data.weather[0].description === "light shower sleet" ||
+    response.data.weather[0].description === "shower sleet" ||
+    response.data.weather[0].description === "light rain and snow" ||
+    response.data.weather[0].description === "rain and snow" ||
+    response.data.weather[0].description === "light shower snow" ||
+    response.data.weather[0].description === "shower snow" ||
+    response.data.weather[0].description === "heavy shower snow"
+  ) {
     wonderlandImage.setAttribute(
       "src",
       "images/oraculum/mad-hatter-dormouse.jpg"
@@ -198,7 +241,8 @@ function displayWeatherCondition(response) {
   } else if (
     response.data.weather[0].description === "few clouds" ||
     response.data.weather[0].description === "scattered clouds" ||
-    response.data.weather[0].description === "broken clouds"
+    response.data.weather[0].description === "broken clouds" ||
+    response.data.weather[0].description === "overcast clouds"
   ) {
     wonderlandImage.setAttribute(
       "src",
