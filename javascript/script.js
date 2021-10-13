@@ -150,7 +150,9 @@ function getForecast(coordinates) {
 }
 
 function displayWeatherCondition(response) {
-  document.querySelector("#city-state").innerHTML = response.data.name;
+  console.log(response);
+  document.querySelector("#city").innerHTML = response.data.name + ",";
+  document.querySelector("#country").innerHTML = response.data.sys.country;
 
   document
     .querySelector("#main-temp-icon")
