@@ -20,6 +20,58 @@ footer {
   max-width: 922px;
 
   font-family: "Alice", serif;
+
+  animation: fadeIn 5s;
+
+  -webkit-animation: fadeIn 5s;
+  -moz-animation: fadeIn 5s;
+  -o-animation: fadeIn 5s;
+  -ms-animation: fadeIn 5s;
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @-moz-keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @-webkit-keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @-o-keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @-ms-keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
 }
 
 .date,
@@ -74,6 +126,7 @@ footer {
   max-width: 100%;
 
   animation: fadeIn 5s, float 6s ease-in-out infinite;
+
   -webkit-animation: fadeIn 5s, float 6s ease-in-out infinite;
   -moz-animation: fadeIn 5s, float 6s ease-in-out infinite;
   -o-animation: fadeIn 5s, float 6s ease-in-out infinite;
