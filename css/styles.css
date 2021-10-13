@@ -9,7 +9,6 @@ footer {
   font-weight: bold;
   font-size: 14px;
 }
-
 .weather-app {
   background: url(https://s3.amazonaws.com/shecodesio-production/uploads/files/000/017/663/original/parchment.jpg?1632579353);
 
@@ -74,12 +73,13 @@ footer {
   box-shadow: 0 0 44px 5px black;
   max-width: 100%;
 
-  animation: fadeIn 5s;
-  -webkit-animation: fadeIn 5s;
-  -moz-animation: fadeIn 5s;
-  -o-animation: fadeIn 5s;
-  -ms-animation: fadeIn 5s;
+  animation: fadeIn 5s, float 6s ease-in-out infinite;
+  -webkit-animation: fadeIn 5s, float 6s ease-in-out infinite;
+  -moz-animation: fadeIn 5s, float 6s ease-in-out infinite;
+  -o-animation: fadeIn 5s, float 6s ease-in-out infinite;
+  -ms-animation: fadeIn 5s, float 6s ease-in-out infinite;
 }
+
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -122,6 +122,21 @@ footer {
   }
   100% {
     opacity: 1;
+  }
+}
+
+@keyframes float {
+  0% {
+    box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+    transform: translatey(0px);
+  }
+  50% {
+    box-shadow: 0 25px 15px 0px rgba(0, 0, 0, 0.2);
+    transform: translatey(-20px);
+  }
+  100% {
+    box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+    transform: translatey(0px);
   }
 }
 
@@ -198,6 +213,18 @@ footer {
   font-size: 20px;
 }
 
+.by-me-descript {
+  position: relative;
+  left: 91px;
+}
+
 .github-link {
   text-decoration: none;
+}
+
+.audio-player {
+  width: 200px;
+  height: 25px;
+  position: relative;
+  left: 233px;
 }
