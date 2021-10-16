@@ -5,4 +5,4 @@
 5.) fade-in transition css code - https://blog.hubspot.com/website/css-fade-in
 6.) floating animation css code - https://codepen.io/MarioDesigns/pen/woJgeo
 7.) animated weather icons - https://bas.dev/projects/weather-icons
-d
+
